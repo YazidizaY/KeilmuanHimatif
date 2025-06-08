@@ -1,0 +1,1248 @@
+/* css/style.css - Lengkap dan Terbaru */
+
+/* Reset dasar dan font tetap */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #131314; /* Latar utama sangat gelap */
+    color: #e8eaed;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Untuk layout utama */
+    min-height: 100vh;
+    overflow-x: hidden; /* Mencegah scroll horizontal karena sidebar */
+}
+
+.gemini-layout {
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 260px; /* Lebar sidebar */
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: fixed; /* Sidebar tetap */
+    left: 0;
+    top: 0;
+    border-right: 1px solid #3c4043; /* Garis pemisah halus */
+    transition: width 0.3s ease; /* Untuk animasi jika ingin collapsible */
+}
+
+.sidebar-header {
+    text-align: center;
+    border-bottom: 1px solid #3c4043;
+    margin-bottom: 15px;
+}
+
+.sidebar-header h3 { /* Nama Aplikasi */
+    color: #e8eaed;
+    margin: 0 0 15px 0;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+
+.user-profile-sidebar .avatar-sidebar {
+    width: 32px; /* Atau ukuran lain yang diinginkan */
+    height: 32px; /* Sama dengan width untuk lingkaran sempurna */
+    border-radius: 50%; /* Membuatnya bulat */
+    margin-right: 12px;
+    background-color: #5f6368; /* Warna latar jika gambar gagal dimuat sebelum onerror */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    border: 1px solid #4a4e52; /* Optional: border halus di sekitar avatar */
+}
+
+.user-profile-sidebar {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-sidebar .avatar-sidebar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: 12px;
+    background-color: #5f6368; /* Placeholder avatar color */
+    object-fit: cover; /* Jika menggunakan gambar asli */
+}
+
+.user-profile-sidebar span { /* Username */
+    color: #bdc1c6;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.sidebar-nav {
+    flex-grow: 1; /* Membuat nav mengisi ruang tersedia */
+    overflow-y: auto; /* Scroll jika item nav banyak */
+}
+
+.sidebar-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav ul li a {
+    display: flex; /* Untuk ikon dan teks sejajar */
+    align-items: center;
+    padding: 12px 20px;
+    color: #bdc1c6; /* Warna link navigasi */
+    text-decoration: none;
+    font-size: 0.95em;
+    font-weight: 400;
+    border-left: 3px solid transparent; /* Indikator aktif */
+    transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
+}
+.sidebar-nav ul li a .nav-icon {
+    margin-right: 15px;
+    width: 20px; /* Lebar ikon */
+    text-align: center;
+    color: #9aa0a6; /* Warna ikon */
+}
+.sidebar-nav ul li a:hover {
+    background-color: #2d2e30; /* Latar saat hover */
+    color: #e8eaed; /* Teks lebih terang saat hover */
+}
+.sidebar-nav ul li a.active {
+    background-color: #403a28; /* Latar untuk link aktif (biru gelap samar) */
+    color: #ffa231; /* Warna teks link aktif */
+    font-weight: 500;
+    border-left-color: #ffc800; /* Indikator aktif */
+}
+.sidebar-nav ul li a.active .nav-icon {
+    color: #8ab4f8;
+}
+.sidebar-nav .nav-section-title {
+    padding: 15px 20px 5px 20px;
+    font-size: 0.8em;
+    color: #9aa0a6; /* Abu-abu untuk judul bagian */
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid #3c4043;
+}
+.sidebar-footer a {
+    display: block;
+    padding: 10px 0;
+    color: #bdc1c6;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.sidebar-footer a:hover {
+    color: #e8eaed;
+}
+
+/* Main Content Area Styling */
+.main-content-wrapper {
+    flex-grow: 1;
+    margin-left: 260px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+}
+
+.main-header-top {
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    padding: 18px 30px;
+    border-bottom: 1px solid #3c4043;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 65px;
+}
+
+.main-header-top h2 {
+    color: #e8eaed;
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 500;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.content-area {
+    padding: 25px 30px;
+    flex-grow: 1;
+    background-color: #131314;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-area > h2 { /* Judul utama di dalam content-area */
+    color: #e8eaed; 
+    border-bottom: 1px solid #3c4043;
+    padding-bottom: 10px;
+    margin-top: 0;
+    margin-bottom: 25px; 
+    font-weight: 500;
+    font-size: 1.6em; 
+}
+
+
+/* Welcome Section */
+.welcome-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    min-height: 30vh;
+}
+.greeting-text {
+    font-size: 3.2em;
+    font-weight: 500;
+    color: #e8eaed;
+    margin-bottom: 10px;
+}
+.greeting-text .user-name {
+    background-image: linear-gradient(140deg, #ffaa00, #fff958);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+}
+.tagline {
+    font-size: 1.1em;
+    color: #bdc1c6;
+    margin-bottom: 30px;
+}
+.suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.chip-button {
+    display: inline-block;
+    background-color: #2d2e30;
+    color: #bdc1c6;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9em;
+    border: 1px solid #3c4043;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    cursor: pointer;
+}
+.chip-button:hover {
+    background-color: #3c4043;
+    color: #e8eaed;
+    transform: translateY(-1px);
+}
+.chip-button .chip-icon {
+    margin-right: 8px;
+}
+.main-page-content {
+    margin-top: 30px;
+}
+.main-page-content > h2, .main-page-content > h3 { /* Judul section di bawah welcome */
+    color: #bdc1c6;
+    border-bottom: 1px solid #3c4043;
+    padding-bottom: 10px;
+    margin-top: 0; 
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+
+/* Request Tutor Page Specific */
+.request-tutor-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: 40px 20px;
+}
+.request-tutor-page-container > h2 { /* Judul utama di halaman request tutor */
+    font-size: 2.2em;
+    color: #e8eaed;
+    margin-bottom: 15px;
+    border-bottom: none;
+}
+.request-tutor-page-container .page-subheading {
+    font-size: 1.1em;
+    color: #bdc1c6;
+    max-width: 500px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+.request-tutor-page-container .btn-trigger-modal-main {
+    background-image: linear-gradient(140deg, #ffaa00, #fff958);
+    color: #202124;
+    padding: 14px 30px;
+    font-size: 1.15em;
+    font-weight: 600;
+    border-radius: 28px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.request-tutor-page-container .btn-trigger-modal-main:hover {
+    background-color: #a1c9fa;
+    transform: translateY(-2px);
+}
+.request-tutor-page-container .btn-trigger-modal-main .nav-icon {
+    font-size: 1.2em;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.7);
+}
+.modal-content {
+    background-color: #06060600;
+    margin: 8% auto;
+    padding: 30px 35px;
+    border: 1px solid #3c4043;
+    width: 90%;
+    max-width: 580px;
+    border-radius: 12px;
+    position: relative;
+    color: #e8eaed;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    transform: scale(0.95);
+    opacity: 0;
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    backdrop-filter: blur(8px);;
+}
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+.modal-content .modal-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3c4043;
+}
+.modal-content .modal-header-custom h2 { /* Judul di dalam modal */
+    color: #e8eaed;
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: 500;
+    border-bottom: none;
+    padding-bottom: 0;
+}
+.modal-content .close-btn {
+    color: #9aa0a6;
+    font-size: 32px;
+    font-weight: normal;
+    position: static;
+    transition: color 0.2s ease;
+    cursor: pointer;
+}
+.modal-content .close-btn:hover,
+.modal-content .close-btn:focus {
+    color: #e8eaed;
+}
+
+/* === COMMON FORM STYLES (Refactored) === */
+.auth-form-wrapper .form-group,
+.admin-form-wrapper .form-group,
+.modal-content .form-group {
+    margin-bottom: 20px;
+}
+
+.auth-form-wrapper .form-group label,
+.admin-form-wrapper .form-group label,
+.modal-content .form-group label {
+    display: block;
+    color: #bdc1c6;
+    font-size: 0.95em;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.auth-form-wrapper .form-group input[type="text"],
+.auth-form-wrapper .form-group input[type="email"],
+.auth-form-wrapper .form-group input[type="password"],
+.auth-form-wrapper .form-group input[type="date"],
+.auth-form-wrapper .form-group input[type="time"],
+.auth-form-wrapper .form-group select,
+.admin-form-wrapper .form-group input[type="text"],
+.admin-form-wrapper .form-group input[type="email"],
+.admin-form-wrapper .form-group input[type="password"],
+.admin-form-wrapper .form-group input[type="date"],
+.admin-form-wrapper .form-group input[type="time"],
+.admin-form-wrapper .form-group select,
+.admin-form-wrapper .form-group textarea,
+.modal-content .form-group input[type="text"],
+.modal-content .form-group input[type="email"],
+.modal-content .form-group input[type="password"],
+.modal-content .form-group input[type="date"],
+.modal-content .form-group input[type="time"],
+.modal-content .form-group select,
+.modal-content .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #1b1b1a;
+    border: 1px solid #5f6368;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #e8eaed;
+    box-sizing: border-box;
+}
+
+.admin-form-wrapper .form-group textarea,
+.modal-content .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.auth-form-wrapper .form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.admin-form-wrapper .form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.modal-content .form-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.8);
+}
+
+.auth-form-wrapper .form-group input:not([type="submit"]):not([type="button"]):not([type="reset"]):focus,
+.auth-form-wrapper .form-group select:focus,
+.auth-form-wrapper .form-group textarea:focus,
+.admin-form-wrapper .form-group input:not([type="submit"]):not([type="button"]):not([type="reset"]):focus,
+.admin-form-wrapper .form-group select:focus,
+.admin-form-wrapper .form-group textarea:focus,
+.modal-content .form-group input:not([type="submit"]):not([type="button"]):not([type="reset"]):focus,
+.modal-content .form-group select:focus,
+.modal-content .form-group textarea:focus {
+    outline: none;
+    border-color: #8ab4f8;
+    box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.25);
+}
+
+.auth-form-wrapper .error-message-inline,
+.admin-form-wrapper .error-message-inline,
+.modal-content .error-message-inline {
+    font-size: 0.85em;
+    color: #f28b82;
+    display: block;
+    margin-top: 5px;
+}
+
+.auth-page-container,
+.admin-form-page-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 20px;
+    flex-grow: 1;
+}
+
+.auth-form-wrapper,
+.admin-form-wrapper {
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    padding: 30px 35px;
+    border: 1px solid #3c4043;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    width: 100%;
+}
+.auth-form-wrapper { max-width: 480px; }
+.admin-form-wrapper { max-width: 650px; }
+
+.auth-form-wrapper h2 {
+    text-align: center;
+    font-size: 1.8em;
+    color: #e8eaed;
+    margin-top: 0;
+    margin-bottom: 25px;
+    border-bottom: none;
+}
+.admin-form-wrapper h2 {
+    text-align: left;
+    font-size: 1.8em;
+    color: #e8eaed;
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #3c4043;
+}
+
+.admin-form-wrapper .form-info {
+    margin-bottom: 25px;
+    font-size: 0.95em;
+    color: #bdc1c6;
+    line-height: 1.6;
+}
+.admin-form-wrapper .form-info p { margin: 5px 0; }
+.admin-form-wrapper .form-info strong { color: #e8eaed; }
+
+.auth-form-wrapper .btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1.05em;
+    font-weight: 800;
+    background-image: linear-gradient(140deg, #cb8802, #d7b50a);
+    color: #202124;
+    border-radius: 6px;
+    margin-top: 10px; 
+    border: none; 
+    cursor: pointer; 
+}
+.auth-form-wrapper .btn:hover {
+    background-color: #a1c9fa;
+}
+
+.admin-form-wrapper .form-actions .btn,
+.modal-content .form-actions .btn {
+    padding: 10px 25px;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 6px;
+    border: none; 
+    cursor: pointer; 
+}
+.admin-form-wrapper .form-actions .btn, 
+.modal-content .form-actions .btn:not(.btn-secondary) {
+    background-color: #8ab4f8;
+    color: #202124;
+}
+.admin-form-wrapper .form-actions .btn:hover,
+.modal-content .form-actions .btn:not(.btn-secondary):hover {
+    background-color: #a1c9fa;
+}
+.admin-form-wrapper .form-actions .btn-secondary,
+.modal-content .form-actions .btn-secondary {
+    background-color: #3c4043;
+    color: #e8eaed;
+    margin-right: 10px;
+}
+.admin-form-wrapper .form-actions .btn-secondary:hover,
+.modal-content .form-actions .btn-secondary:hover {
+    background-color: #4a4e52;
+}
+
+.auth-form-wrapper .auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+.auth-form-wrapper .auth-link a {
+    color: #e48f0e;
+    text-decoration: none;
+    font-weight: 500;
+}
+.auth-form-wrapper .auth-link a:hover {
+    text-decoration: underline;
+}
+
+.auth-page-container .alert,
+.admin-form-page-container .alert {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.auth-page-container .alert { max-width: 480px; }
+.admin-form-page-container .alert { max-width: 650px; }
+
+.admin-form-wrapper .form-actions,
+.modal-content .form-actions {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #3c4043;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+/* === END OF COMMON FORM STYLES === */
+
+
+/* Styling untuk Tabel Admin */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    border-radius: 8px; 
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+}
+.admin-table th, .admin-table td {
+    border-bottom: 1px solid #3c4043; 
+    padding: 14px 18px; 
+    text-align: left;
+    color: #bdc1c6;
+    font-size: 0.95em; 
+}
+.admin-table th {
+    background-color: #2d2e30;
+    color: #e8eaed;
+    font-weight: 500;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.admin-table tr:last-child td {
+    border-bottom: none;
+}
+.admin-table tr:hover td {
+    background-color: #252628;
+}
+
+/* Styling untuk Tombol Aksi di Tabel Admin */
+.admin-table .action-buttons {
+    display: flex;
+    gap: 8px;
+}
+.admin-table .action-buttons .btn-small {
+    padding: 6px 12px; 
+    font-size: 0.85em;
+    border-radius: 5px; 
+    text-decoration: none;
+    color: white;
+    border: none;
+    cursor: pointer; 
+    transition: background-color 0.2s ease; 
+}
+.admin-table .action-buttons .btn-edit {
+    background-color: #4285f4;
+}
+.admin-table .action-buttons .btn-edit:hover {
+    background-color: #357ae8;
+}
+.admin-table .action-buttons .btn-delete {
+    background-color: #ea4335;
+}
+.admin-table .action-buttons .btn-delete:hover {
+    background-color: #c5372c;
+}
+
+/* Styling untuk tombol "Tambah Baru" di atas tabel */
+.admin-table-header-actions {
+    margin-bottom: 20px; 
+    text-align: right;
+}
+.admin-table-header-actions .btn-add-new {
+    background-image: linear-gradient(120deg, #002f0f, #155927, #00270c);
+    color: white;
+    padding: 10px 20px; 
+    font-size: 0.95em;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-flex; 
+    align-items: center;
+    gap: 8px; 
+    transition: background-color 0.2s ease;
+}
+.admin-table-header-actions .btn-add-new:hover {
+    background-color: #2c8f45;
+}
+
+
+/* Card Styling (General & Specific) */
+.session-card { /* Untuk mahasiswa */
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    border: 1px solid #3c4043;
+    border-radius: 10px;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.session-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.session-card .card-header {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #4a4e52;
+}
+.session-card .course-title {
+    font-size: 1.4em;
+    font-weight: 500;
+    background-image: linear-gradient(140deg, #ffaa00, #fff958);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin: 0;
+}
+.session-card .card-body p {
+    font-size: 0.95em;
+    color: #bdc1c6;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.session-card .card-body p strong {
+    color: #e8eaed;
+    font-weight: 500;
+    margin-right: 5px;
+}
+.session-card .card-footer {
+    margin-top: auto;
+    padding-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+}
+.session-card .btn-join-session {
+    background-image: linear-gradient(140deg, #ffaa00, #fff958);
+    color: #151515;
+    padding: 8px 18px;
+    font-size: 0.9em;
+    font-weight: 600;
+    border-radius: 20px;
+    text-decoration: none;
+    border: none;
+}
+.session-card .btn-join-session:hover {
+    background-image: linear-gradient(140deg, #bf8003, #cfc91e);
+}
+.session-card .btn-danger.btn-small {
+    background-color: transparent;
+    color: #f28b82;
+    border: 1px solid #f28b82;
+    padding: 6px 15px;
+    font-size: 0.85em;
+    font-weight: 500;
+    border-radius: 18px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.session-card .btn-danger.btn-small:hover {
+    background-color: #f28b82;
+    color: #202124;
+}
+.session-card .status-joined { /* Status di kartu mahasiswa */
+    font-size: 0.9em;
+    font-weight: 500;
+    color: #81C995;
+    padding: 8px 12px;
+    background-color: rgba(129, 201, 149, 0.1);
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+}
+.session-card .status-joined .icon-check {
+    margin-right: 6px;
+    font-size: 1.1em;
+}
+
+
+.admin-request-card { /* Untuk admin pending requests */
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    border: 1px solid #3c4043;
+    border-radius: 10px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+}
+.admin-request-card .card-header {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #4a4e52;
+}
+.admin-request-card .student-info {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #e8eaed;
+    margin: 0 0 5px 0;
+}
+.admin-request-card .student-npm {
+    font-size: 0.85em;
+    color: #9aa0a6;
+    margin-bottom: 15px;
+    display: block;
+}
+.admin-request-card .card-body p {
+    font-size: 0.95em;
+    color: #bdc1c6;
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+.admin-request-card .card-body p strong {
+    color: #e8eaed;
+    font-weight: 500;
+    margin-right: 5px;
+}
+.admin-request-card .card-actions {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #4a4e52;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+}
+.admin-request-card .card-actions .btn { /* Tombol di admin request card */
+    padding: 8px 15px;
+    font-size: 0.9em;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    border: none;
+    color: white; /* Default warna teks putih */
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.admin-request-card .btn-approve { background-image: linear-gradient(120deg, #002f0f, #155927, #00270c); }
+.admin-request-card .btn-approve:hover { background-image: linear-gradient(120deg, #0b7f30, #14be41, #0b961e); }
+.admin-request-card .btn-reject { background-image: linear-gradient(120deg, #440505, #730c0c, #3e0202); }
+.admin-request-card .btn-reject:hover { background-image: linear-gradient(120deg, #a30606, #da1616, #a50909); }
+.admin-request-card .btn-edit-details { background-image: linear-gradient(120deg, #062c6a, #0b5ba6, #05256a); }
+.admin-request-card .btn-edit-details:hover { background-image: linear-gradient(120deg, #208fff, #5dc4ff, #2ba3ff); }
+
+
+/* No Data Messages */
+.no-sessions-message,
+.no-admin-requests-message {
+    text-align: center;
+    padding: 40px 20px; 
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    border-radius: 8px;
+    margin-top: 20px;
+    color: #bdc1c6;
+}
+.no-sessions-message.compact,
+.no-admin-requests-message.compact { 
+    text-align: left;
+    padding: 15px 0px;
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 0;
+    border-top: 1px dashed #3c4043;
+    border-bottom: 1px dashed #3c4043;
+}
+.no-sessions-message p,
+.no-admin-requests-message p {
+    font-size: 1.1em;
+    margin-bottom: 0; 
+}
+.no-sessions-message.compact p,
+.no-admin-requests-message.compact p {
+    font-size: 1em;
+    color: #9aa0a6;
+}
+.no-sessions-message .btn-primary-action { 
+    background-color: #8ab4f8;
+    color: #202124;
+    padding: 12px 25px;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 25px;
+    text-decoration: none;
+    margin-top: 20px; 
+    display: inline-block; 
+}
+.no-sessions-message .btn-primary-action:hover {
+    background-color: #a1c9fa;
+}
+
+
+/* Sesi Tutor Mahasiswa & Admin Mengajar */
+.sessions-container { width: 100%; }
+.session-category { margin-bottom: 40px; }
+.session-category > h2 { 
+    font-size: 1.6em; 
+    color: #e8eaed;
+    margin-bottom: 20px;
+    padding-bottom: 12px; 
+    border-bottom: 1px solid #3c4043;
+    display: flex;
+    align-items: center;
+}
+.session-category > h2 .nav-icon {
+    margin-right: 12px;
+    font-size: 1.2em;
+    color: #8ab4f8;
+}
+.my-sessions-list { /* Grid untuk kartu sesi mahasiswa */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); 
+    gap: 25px;
+    padding-top: 10px;
+}
+.admin-requests-list { /* Grid untuk kartu permintaan admin */
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+@media (min-width: 992px) {
+    .admin-requests-list {
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    }
+}
+
+/* CSS UNTUK ADMIN MY TEACHING SESSIONS */
+.teaching-sessions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+}
+
+.teaching-session-card {
+    background-image: linear-gradient(140deg, #131314, #1e1e1e, #131314, #131314);
+    border: 1px solid #3c4043;
+    border-radius: 10px;
+    padding: 0; 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+.teaching-session-card .card-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #3c4043; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a1a1a;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px;
+}
+
+.teaching-session-card .course-title { 
+    font-size: 1.5em; 
+    background-image: linear-gradient(140deg, #ffaa00, #fff958);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin: 0;
+}
+.teaching-session-card .session-schedule {
+    font-size: 0.9em;
+    color: #9aa0a6;
+}
+
+.teaching-session-card .card-body {
+    padding: 20px 25px;
+}
+.teaching-session-card .card-body p { 
+    font-size: 0.95em;
+    color: #c3c6bd;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.teaching-session-card .card-body p strong {
+    color: #e8eaed;
+}
+
+.teaching-session-card .card-body h4 { 
+    font-size: 1.2em;
+    color: #faffcb; 
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed #4a4e52; 
+}
+
+.attendance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9em; 
+}
+.attendance-table th, .attendance-table td {
+    border: 1px solid #3c4043;
+    padding: 10px 12px;
+    text-align: left;
+    color: #bdc1c6;
+}
+.attendance-table th {
+    background-color: #252628; 
+    color: #e8eaed;
+    font-weight: 500;
+}
+.attendance-table tr:nth-child(even) td {
+    background-color: #222325; 
+}
+
+.attendance-options {
+    display: flex;
+    gap: 15px; 
+    align-items: center;
+    flex-wrap: wrap; 
+}
+.attendance-options .attendance-radio {
+    display: inline-flex; 
+    align-items: center;
+    cursor: pointer;
+    color: #bdc1c6;
+    font-size: 0.95em;
+}
+.attendance-options .attendance-radio input[type="radio"] {
+    margin-right: 6px;
+    accent-color: #8ab4f8; 
+    transform: scale(1.1); 
+}
+
+.btn-save-attendance { 
+    background-image: linear-gradient(120deg, #002f0f, #155927, #00270c);
+    color: white;
+    padding: 9px 20px;
+    font-size: 0.95em;
+    border: none; /* Ditambahkan */
+    border-radius: 5px; /* Ditambahkan */
+    cursor: pointer; /* Ditambahkan */
+}
+.btn-save-attendance:hover {
+    background-image: linear-gradient(120deg, #0b7f30, #14be41, #0b961e);
+}
+
+.teaching-session-card .form-actions {
+    justify-content: flex-start; 
+    border-top: none; 
+    padding-top: 0; 
+    margin-top: 15px; /* Disesuaikan */
+}
+
+.filters-container {
+    background-color: #1a1a1a;
+    padding: 20px 25px;
+    border-radius: 8px;
+    margin-bottom: 30px; /* Jarak ke konten di bawahnya */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.filters-container h3 {
+    color: #e8eaed;
+    font-size: 1.2em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.filters-form {
+    display: flex;
+    flex-wrap: wrap; /* Agar filter bisa wrap di layar kecil */
+    gap: 20px; /* Jarak antar grup filter */
+    align-items: flex-end; /* Sejajarkan item ke bawah (untuk tombol) */
+}
+
+.filters-form .form-group {
+    margin-bottom: 0; /* Hapus margin bawah default dari form-group di sini */
+    flex: 1 1 200px; /* Fleksibel, basis 200px, bisa tumbuh dan menyusut */
+    min-width: 180px; /* Lebar minimal untuk setiap filter */
+}
+
+.filters-form .form-group label {
+    font-size: 0.9em;
+    color: #bdc1c6;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.filters-form .form-group select,
+.filters-form .form-group input[type="date"] { /* Jika menggunakan date picker custom */
+    width: 100%;
+    padding: 10px 12px; /* Padding sedikit lebih kecil untuk filter */
+    background-color: #303134;
+    border: 1px solid #5f6368;
+    border-radius: 5px;
+    font-size: 0.95em;
+    color: #e8eaed;
+    box-sizing: border-box;
+}
+
+.filters-form .form-group select:focus,
+.filters-form .form-group input[type="date"]:focus {
+    outline: none;
+    border-color: #8ab4f8;
+    box-shadow: 0 0 0 2px rgba(138, 180, 248, 0.25);
+}
+
+.filters-form .filter-actions {
+    flex-basis: 100%; /* Tombol mengambil lebar penuh di baris baru jika wrap */
+    margin-top: 10px; /* Jarak jika tombol ada di baris baru */
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start; /* Tombol mulai dari kiri */
+}
+
+@media (min-width: 768px) { /* Untuk layar lebih besar */
+    .filters-form .filter-actions {
+        flex-basis: auto; /* Kembalikan ke auto agar sejajar dengan filter lain */
+        margin-top: 0;
+    }
+}
+
+
+.filters-form .btn-filter {
+    background-color: #8ab4f8;
+    color: #202124;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.filters-form .btn-filter:hover {
+    background-color: #a1c9fa;
+}
+.filters-form .btn-reset-filter {
+    background-color: #3c4043;
+    color: #e8eaed;
+    padding: 10px 20px;
+    font-size: 0.95em;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.filters-form .btn-reset-filter:hover {
+    background-color: #4a4e52;
+}
+
+
+/* Alert (Global) */
+.alert {
+    padding: 15px 20px; 
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 6px; 
+    color: #e8eaed;
+    font-size: 0.95em; 
+}
+.alert-success {
+    background-color: #344B3E;
+    border-color: #81C995;
+    color: #C6F3D7;
+}
+.alert-danger {
+    background-color: #5C3B39;
+    border-color: #F28B82;
+    color: #FAD2CF;
+}
+
+/* Tombol Umum (Base .btn) */
+.btn { 
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 500;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+.btn.btn-primary {
+    background-color: #8ab4f8;
+    color: #202124;
+}
+.btn.btn-primary:hover {
+    background-color: #a1c9fa;
+}
+
+
+.documentation-section h4 {
+    font-size: 1.3em;
+    color: #c4d9f3; /* Biru muda */
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #4a4e52;
+}
+
+.btn-upload-doc { /* Tombol Unggah Dokumentasi */
+    background-color: #34a853; /* Hijau */
+    color: white;
+    /* padding, font-size, dll. bisa mengikuti .btn standar atau disesuaikan */
+}
+.btn-upload-doc:hover {
+    background-color: #2c8f45;
+}
+
+.documentation-list {
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+.documentation-list li {
+    background-color: #252628; /* Latar item sedikit beda */
+    padding: 12px 18px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Agar bisa wrap di layar kecil */
+    gap: 10px;
+    border: 1px solid #3c4043;
+}
+
+.documentation-list li a {
+    color: #8ab4f8;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+.documentation-list li a:hover {
+    text-decoration: underline;
+    color: #a1c9fa;
+}
+.documentation-list li a .nav-icon { /* Ikon file */
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.documentation-list li .doc-description {
+    font-size: 0.85em;
+    color: #9aa0a6;
+    margin-left: 5px;
+    flex-basis: 100%;
+    margin-top: 3px;
+}
+.documentation-list li .doc-timestamp {
+    font-size: 0.8em;
+    color: #70757a;
+    margin-left: auto; 
+    padding-left: 10px; 
+}
+
+.btn-delete-doc {
+    background-color: transparent;
+    color: #f28b82;
+    border: 1px solid #f28b82;
+    padding: 4px 10px;
+    font-size: 0.8em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-delete-doc:hover {
+    background-color: #f28b82;
+    color: #202124;
+}
